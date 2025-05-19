@@ -152,6 +152,28 @@ void hapusFilm(char judulHapus[100])
     }
 }
 
+void tampilkanFilm()
+{
+    if (listKosong())
+    {
+        cout << "List kosong.\n";
+        return;
+    }
+    Film *bantu = awal;
+    cout << "----------------------------------------\n";
+    cout << "        Daftar Film Kesukaan:\n";
+    cout << "----------------------------------------\n";
+    while (bantu != nullptr)
+    {
+        cout << "Judul     : " << bantu->judul << "\n";
+        cout << "Tahun     : " << bantu->tahunRilis << "\n";
+        cout << "Genre     : " << bantu->genre << "\n";
+        cout << "Rating    : " << bantu->rating << "\n";
+        cout << "----------------------------------------\n";
+        bantu = bantu->kanan;
+    }
+}
+
 int main (){
 
 
