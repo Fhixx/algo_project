@@ -291,7 +291,34 @@ void sortingByRatingAscending()
 }
 
 int main (){
+    buatListBaru();
 
+    int pilih;
+    char judul[100];
+    int tahun;
+    char genre[50];
+    float rating;
+    do
+    {
+        system("cls");
+        cout << "----------------------------------------\n";
+        cout << "            Menu Film Kesukaan\n";
+        cout << "----------------------------------------\n";
+        cout << "1. Input Data Film\n";
+        cout << "2. Tampilkan Semua Film\n";
+        cout << "3. Cari Film Berdasarkan Judul\n";
+        cout << "4. Hapus Film Berdasarkan Judul\n";
+        cout << "5. Urutan Film Berdasarkan Rating Tertinggi\n";
+        cout << "6. Urutan Film Berdasarkan Rating Terendah\n";
+        cout << "7. Keluar\n";
+        cout << "Pilih menu: ";
+        cin >> pilih;
+        cin.ignore();
+
+        
+
+    } while (pilih != 7);
+    
 
     return 0;
 }
