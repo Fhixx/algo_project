@@ -226,6 +226,70 @@ void simpanKeFile()
     fclose(file);
 }
 
+void sortingByRatingDescending()
+{
+    if (listKosong())
+    {
+        cout << "List kosong.\n";
+        return;
+    }
+
+    bool swapped;
+    do
+    {
+        swapped = false;
+        Film *bantu = awal;
+        while (bantu->kanan != nullptr)
+        {
+            if (bantu->rating < bantu->kanan->rating)
+            {
+                // Tukar semua data, bukan node
+                swap(bantu->judul, bantu->kanan->judul);
+                swap(bantu->tahunRilis, bantu->kanan->tahunRilis);
+                swap(bantu->genre, bantu->kanan->genre);
+                swap(bantu->rating, bantu->kanan->rating);
+                swapped = true;
+            }
+            bantu = bantu->kanan;
+        }
+    } while (swapped);
+
+    cout << "Film berhasil diurutkan berdasarkan rating tertinggi :\n";
+    tampilkanFilm();
+}
+
+void sortingByRatingAscending()
+{
+    if (listKosong())
+    {
+        cout << "List kosong.\n";
+        return;
+    }
+
+    bool swapped;
+    do
+    {
+        swapped = false;
+        Film *bantu = awal;
+        while (bantu->kanan != nullptr)
+        {
+            if (bantu->rating > bantu->kanan->rating)
+            {
+                // Tukar semua isi data
+                swap(bantu->judul, bantu->kanan->judul);
+                swap(bantu->tahunRilis, bantu->kanan->tahunRilis);
+                swap(bantu->genre, bantu->kanan->genre);
+                swap(bantu->rating, bantu->kanan->rating);
+                swapped = true;
+            }
+            bantu = bantu->kanan;
+        }
+    } while (swapped);
+
+    cout << "Film berhasil diurutkan berdasarkan rating terendah :\n";
+    tampilkanFilm();
+}
+
 int main (){
 
 
