@@ -152,6 +152,35 @@ void hapusFilm(char judulHapus[100])
     }
 }
 
+void cariFilm(char judulCari[100])
+{
+    if (listKosong())
+    {
+        cout << "List kosong.\n";
+        return;
+    }
+
+    Film *bantu = awal;
+    bool found = false;
+    while (bantu != nullptr)
+    {
+        if (strcmp(bantu->judul, judulCari) == 0)
+        {
+            cout << "Film ditemukan:\n";
+            cout << "Judul     : " << bantu->judul << "\n";
+            cout << "Tahun     : " << bantu->tahunRilis << "\n";
+            cout << "Genre     : " << bantu->genre << "\n";
+            cout << "Rating    : " << bantu->rating << "\n";
+            found = true;
+            break;
+        }
+        bantu = bantu->kanan;
+    }
+    if (!found)
+        cout << "Film dengan judul \"" << judulCari << "\" tidak ditemukan.\n";
+}
+
+
 void tampilkanFilm()
 {
     if (listKosong())
@@ -172,6 +201,29 @@ void tampilkanFilm()
         cout << "----------------------------------------\n";
         bantu = bantu->kanan;
     }
+}
+
+void simpanKeFile()
+{
+    FILE *file = fopen("FavoFilm.dat", "w");
+    if (!file)
+    {
+        cout << "Gagal menyimpan ke file.\n";
+        return;
+    }
+
+    Film *bantu = awal;
+    while (bantu != nullptr)
+    {
+        fprintf(file, "%s;%d;%s;%.2f\n",
+                bantu->judul,
+                bantu->tahunRilis,
+                bantu->genre,
+                bantu->rating);
+        bantu = bantu->kanan;
+    }
+
+    fclose(file);
 }
 
 int main (){
