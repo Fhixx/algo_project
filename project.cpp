@@ -180,7 +180,6 @@ void cariFilm(char judulCari[100])
         cout << "Film dengan judul \"" << judulCari << "\" tidak ditemukan.\n";
 }
 
-
 void tampilkanFilm()
 {
     if (listKosong())
@@ -290,7 +289,8 @@ void sortingByRatingAscending()
     tampilkanFilm();
 }
 
-int main (){
+int main()
+{
     buatListBaru();
 
     int pilih;
@@ -315,10 +315,58 @@ int main (){
         cin >> pilih;
         cin.ignore();
 
-        
+        switch (pilih)
+        {
+        case 1:
+            cout << "Masukkan judul film: ";
+            cin.getline(judul, 100);
+            cout << "Masukkan tahun rilis: ";
+            cin >> tahun;
+            cin.ignore();
+            cout << "Masukkan genre film: ";
+            cin.getline(genre, 50);
+            cout << "Masukkan rating film: ";
+            cin >> rating;
+            cin.ignore();
+            sisipFilm(judul, tahun, genre, rating);
+            simpanKeFile();
+            break;
+        case 2:
+            tampilkanFilm();
+            system("pause");
+            break;
+        case 3:
+            cout << "Masukkan judul film yang dicari: ";
+            cin.getline(judul, 100);
+            cariFilm(judul);
+            system("pause");
+            break;
+        case 4:
+            cout << "Masukkan judul film yang ingin dihapus: ";
+            cin.getline(judul, 100);
+            hapusFilm(judul);
+            simpanKeFile();
+            system("pause");
+            break;
+        case 5:
+            sortingByRatingDescending();
+            system("pause");
+
+            break;
+        case 6:
+            sortingByRatingAscending();
+            system("pause");
+
+            break;
+        case 7:
+            cout << "Keluar dari program.\n";
+            break;
+        default:
+            cout << "Pilihan tidak valid.\n";
+            system("pause");
+        }
 
     } while (pilih != 7);
-    
 
     return 0;
 }
