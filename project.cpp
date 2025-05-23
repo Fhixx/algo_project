@@ -194,9 +194,10 @@ void editRatingFilm(char judulCari[100])
     {
         if (strcmp(bantu->judul, judulCari) == 0)
         {
-            cout << "Masukkan rating baru: "; cin >> bantu->rating;
+            cout << "Masukkan rating baru: ";
+            cin >> bantu->rating;
             cout << "------------------------------------------------------------\n";
-            cout << "Rating Film dengan judul "<<bantu->judul<<" berhasil diupdate\n";
+            cout << "Rating Film dengan judul " << bantu->judul << " berhasil diupdate\n";
             cout << "------------------------------------------------------------\n";
             cout << "Judul     : " << bantu->judul << "\n";
             cout << "Tahun     : " << bantu->tahunRilis << "\n";
@@ -340,9 +341,10 @@ int main()
         cout << "2. Tampilkan Semua Film\n";
         cout << "3. Cari Film Berdasarkan Judul\n";
         cout << "4. Hapus Film Berdasarkan Judul\n";
-        cout << "5. Urutan Film Berdasarkan Rating Tertinggi\n";
-        cout << "6. Urutan Film Berdasarkan Rating Terendah\n";
-        cout << "7. Keluar\n";
+        cout << "5. Edit Rating Film\n";
+        cout << "6. Urutan Film Berdasarkan Rating Tertinggi\n";
+        cout << "7. Urutan Film Berdasarkan Rating Terendah\n";
+        cout << "8. Keluar\n";
         cout << "Pilih menu: ";
         cin >> pilih;
         cin.ignore();
@@ -363,16 +365,19 @@ int main()
             sisipFilm(judul, tahun, genre, rating);
             simpanKeFile();
             break;
+
         case 2:
             tampilkanFilm();
             system("pause");
             break;
+
         case 3:
             cout << "Masukkan judul film yang dicari: ";
             cin.getline(judul, 100);
             cariFilm(judul);
             system("pause");
             break;
+
         case 4:
             cout << "Masukkan judul film yang ingin dihapus: ";
             cin.getline(judul, 100);
@@ -380,19 +385,29 @@ int main()
             simpanKeFile();
             system("pause");
             break;
+
         case 5:
+            cout << "Masukkan judul film yang ingin diedit: ";
+            cin.getline(judul, 100);
+            editRatingFilm(judul);
+            simpanKeFile();
+            system("pause");
+            break;
+
+        case 6:
             sortingByRatingDescending();
             system("pause");
-
             break;
-        case 6:
+
+        case 7:
             sortingByRatingAscending();
             system("pause");
-
             break;
-        case 7:
+
+        case 8:
             cout << "Keluar dari program.\n";
             break;
+
         default:
             cout << "Pilihan tidak valid.\n";
             system("pause");
