@@ -180,6 +180,38 @@ void cariFilm(char judulCari[100])
         cout << "Film dengan judul \"" << judulCari << "\" tidak ditemukan.\n";
 }
 
+void editRatingFilm(char judulCari[100])
+{
+    if (listKosong())
+    {
+        cout << "List kosong.\n";
+        return;
+    }
+
+    Film *bantu = awal;
+    bool found = false;
+    while (bantu != nullptr)
+    {
+        if (strcmp(bantu->judul, judulCari) == 0)
+        {
+            cout << "Masukkan rating baru: "; cin >> bantu->rating;
+            cout << "------------------------------------------------------------\n";
+            cout << "Rating Film dengan judul "<<bantu->judul<<" berhasil diupdate\n";
+            cout << "------------------------------------------------------------\n";
+            cout << "Judul     : " << bantu->judul << "\n";
+            cout << "Tahun     : " << bantu->tahunRilis << "\n";
+            cout << "Genre     : " << bantu->genre << "\n";
+            cout << "Rating    : " << bantu->rating << "\n";
+            found = true;
+            break;
+        }
+        bantu = bantu->kanan;
+    }
+
+    if (!found)
+        cout << "Film dengan judul \"" << judulCari << "\" tidak ditemukan.\n";
+}
+
 void tampilkanFilm()
 {
     if (listKosong())
