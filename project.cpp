@@ -364,6 +364,8 @@ int main()
             cin.ignore();
             sisipFilm(judul, tahun, genre, rating);
             simpanKeFile();
+            cout << "\nData Terbaru Berhasil Ditambahkan\n";
+            system("pause");
             break;
 
         case 2:
@@ -413,7 +415,7 @@ int main()
             system("pause");
         }
 
-    } while (pilih != 7);
+    } while (pilih != 8);
 
     return 0;
 }
