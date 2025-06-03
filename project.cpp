@@ -78,7 +78,7 @@ void buatListBaru()
     akhir = nullptr;
 
     // Baca ulang dari file dan isi list
-    FILE *file = fopen("FavoFilm.dat", "r");
+    FILE *file = fopen("FilmKu.dat", "r");
     if (!file)
     {
         cout << "Gagal membuka file untuk inisialisasi list.\n";
@@ -222,7 +222,7 @@ void tampilkanFilm()
     }
     Film *bantu = awal;
     cout << "----------------------------------------\n";
-    cout << "        Daftar Film Kesukaan:\n";
+    cout << "            Daftar FilmKu:\n";
     cout << "----------------------------------------\n";
     while (bantu != nullptr)
     {
@@ -237,7 +237,7 @@ void tampilkanFilm()
 
 void simpanKeFile()
 {
-    FILE *file = fopen("FavoFilm.dat", "w");
+    FILE *file = fopen("FilmKu.dat", "w");
     if (!file)
     {
         cout << "Gagal menyimpan ke file.\n";
@@ -335,7 +335,7 @@ int main()
     {
         system("cls");
         cout << "----------------------------------------\n";
-        cout << "            Menu Film Kesukaan\n";
+        cout << "                 FilmKu\n";
         cout << "----------------------------------------\n";
         cout << "1. Input Data Film\n";
         cout << "2. Tampilkan Semua Film\n";
